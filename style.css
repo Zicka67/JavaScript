@@ -7,7 +7,7 @@
     width: 75px;
     height: 75px;
     border: solid 1px black;
-    background-color: rgb(102, 151, 221);
+    background-color: rgb(222, 228, 42);
     font-size: 3em;
     text-align: center;
     line-height: 75px;
@@ -31,4 +31,17 @@
     to {
         transform: scale(1) rotate(0deg)
     }
+}
+
+.box.error {
+    background-color: rgb(224, 50, 47); 
+}
+
+.box.notice {
+    background-color: rgb(40, 127, 240); 
+    cursor: not-allowed;
+}
+
+.box.success {
+    background-color: rgb(37, 236, 83);
 }
