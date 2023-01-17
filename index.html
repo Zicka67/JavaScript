@@ -30,7 +30,7 @@
             }
         }
         
-        function showReaction(type, clickBox){
+        function showReaction(type, clickedBox){
             clickedBox.classList.add(type)
             if(type !== "success") {
                 setTimeout(function(){
@@ -58,13 +58,15 @@
                     newbox.classList.add("box-clicked")
                     // 1 : si nb = au nbr de boites
                     if(nb == board.children.length){
-                        alert("VICTOIRE !")
+                        board.querySelectorAll(".box").forEach(function(box){
+                            showReaction("success", box)
+                        })
                     }
                     nb++
                 }
                 // 2 : Si le numéro de la boite est supérieur à nb, le joueur a cliqué sur une boite trop élevée 
                 else if(i > nb) {
-                    alert("Erreur, recommencez !")
+                    showReaction("error", newbox)
                     nb = 1 // le jeu se réinitialise 
                     board.querySelectorAll(".box-clicked").forEach(function(validBox){
                         validBox.classList.remove("box-clicked")
@@ -72,7 +74,7 @@
                 }
                 // 3 : Le joueur a cliqué sur une boite déjà cliquée. On l'informe 
                 else{
-                    alert("Case déjà cliquée !")
+                    showReaction("notice", newbox)
                 }
                 
             })
